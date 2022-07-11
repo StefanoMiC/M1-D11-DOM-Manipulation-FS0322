@@ -61,7 +61,7 @@
     </div>
 
 
-    <div>
+    <div id="second-container">
         <h2>Class (.demo-class)</h2>
         <div class="demo-class">Access me by class (1)</div>
         <div class="demo-class">Access me by class (2)</div>
@@ -164,8 +164,9 @@
                 nodeToPreserve = containerNode
                 containerNode.remove()
             } else {
-                const body = document.querySelector("body")
-                body.appendChild(nodeToPreserve)
+                const body = document.querySelector("body") // body is the same parent of both containers
+                const nodeToInsertBeforeOf = document.getElementById("second-container")
+                body.insertBefore(nodeToPreserve, nodeToInsertBeforeOf) // inserting it back in the same previous spot
                 nodeToPreserve = null // resets the value since we pushed the item in the DOM, 
                 //so that next time we fall in the initial condition of the if
             }
